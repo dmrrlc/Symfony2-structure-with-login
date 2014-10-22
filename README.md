@@ -1,4 +1,4 @@
-Symfony2 Structure with login
+Symfony2 user management structure
 ========================
 
 Structure of a symfony2 project
@@ -7,10 +7,10 @@ Structure of a symfony2 project
 - twitter bootstrap integration
 
 TODO
-============
-- template rewriting and twitter bootstrap integration for fosuserbundle part
+====
+- fosuserbundle template rewriting and twitter bootstrap integration for fosuserbundle part
 - profile editing with picture and some more fields
 
 Enhancement/Proposal
-============
+=====
 - internal messaging system
