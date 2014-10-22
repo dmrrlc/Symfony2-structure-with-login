@@ -16,11 +16,20 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
-            logout:       true
+                login_path:     /login
+                check_path:     /login_check
+            logout:       
+                path:       /logout
+                target:     /login
             anonymous:    true
+            provider:     main
+            remember_me:
+                key:        %secret% # %secret% est un paramètre de parameters.yml
+
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/, role: ROLE_ADMIN }
