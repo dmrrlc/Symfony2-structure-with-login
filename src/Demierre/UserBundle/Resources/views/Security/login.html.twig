@@ -1,0 +1,47 @@
+{% extends "DemierreUserBundle::layout.html.twig" %} {%
+trans_default_domain 'FOSUserBundle' %} {% block fos_user_content %} {%
+if error %}
+<div  id="login-alert" class="alert alert-danger col-sm-12">{{ error }}</div>
+{{ error }}
+{% endif %}
+
+<form id="loginform" class="form-horizontal" role="form"
+	action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+	<div style="margin-bottom: 25px" class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+		<input id="login-username username" type="text" class="form-control"
+			name="_username" value="{{ last_username }}"
+			placeholder="username" required="required">
+	</div>
+	<div style="margin-bottom: 25px" class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+		<input id="login-password password" type="password"
+			class="form-control" name="_password" placeholder="password" required="required">
+	</div>
+	<div class="input-group">
+		<div class="checkbox">
+			<label> <input id="login-remember remember_me" type="checkbox"
+				name="_remember_me" value="on""> Remember me
+			</label>
+		</div>
+		<div style="margin-top: 10px" class="form-group">
+			<!-- Button -->
+			<div class="col-sm-12 controls">
+				<input type="submit" id="_submit btn-login" name="_submit"  class="btn btn-success" value="{{ 'security.login.submit'|trans }}" />
+			</div>
+		</div>
+	</div>
+</form>
+<div class="form-group">
+	<div class="col-md-12 control">
+		<div
+			style="border-top: 1px solid #888; padding-top: 15px; font-size: 85%">
+			Don't have an account! <a href="#"
+				onClick="$('#loginbox').hide(); $('#signupbox').show()"> Sign Up
+				Here </a>
+		</div>
+	</div>
+</div>
+</form>
+{% endblock fos_user_content %}

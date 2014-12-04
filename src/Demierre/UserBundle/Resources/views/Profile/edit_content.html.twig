@@ -1,0 +1,39 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+{{ form_start(form, {'method': 'POST', 'action':path('fos_user_profile_edit'), 'class':'profileForm'}) }}
+{{ form_errors(form) }}
+<div class="form-user-summary cf">
+    <div class="form-user-status"> Connecté en tant que <span>{{ app.user.firstname }} {{ app.user.lastname }}</span></div>
+    <div class="form-user-picture">
+    {%  if form.vars.value.image %}
+            {{ form.vars.value.image|vlabs_filter('resize', { 'width' : 200, 'height' : 200 })|vlabs_media('image') }}
+            {% endif %}
+    </div>
+</div>
+
+
+<fieldset class="form-group">
+    <legend>Données de l'utilisateur</legend>
+    {{ form_row(form.username) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.new_password) }}
+    {{ form_row(form.image) }}
+</fieldset>
+<fieldset class="form-group">
+    <legend>Données personnelles</legend>
+    {{ form_row(form.firstname) }}
+    {{ form_row(form.lastname) }}
+    {{ form_row(form.birthdate) }}
+    {{ form_row(form.address) }}
+    {{ form_row(form.landlinephone) }}
+    {{ form_row(form.mobilephone) }}
+    {{ form_row(form.hascar) }}
+    {{ form_row(form.nights) }}
+</fieldset>
+
+{{ form_rest(form) }}
+<div class="out-table-action">
+    <input type="submit" value="{{ 'profile.edit.submit'|trans }}" class="big-button-bottom save"/>
+</div>
+{{ form_end(form) }}

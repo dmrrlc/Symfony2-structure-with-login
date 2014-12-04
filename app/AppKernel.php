@@ -19,7 +19,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Vlabs\MediaBundle\VlabsMediaBundle(),
-            new Demierre\UserBundle\DemierreUserBundle(),
+        	new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+        	new Demierre\UserBundle\DemierreUserBundle(),
             new Demierre\MainBundle\DemierreMainBundle(),
         );
 

@@ -1,0 +1,29 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show">                                </span>
+<div id="profile-picture"> {{ app.user.image|vlabs_filter('resize', { 'width' : 300, 'height' : 300 })|vlabs_media('image') }}        </div>                  
+<table>
+    <tbody><tr>
+            <th>Champ</th>
+            <th>Valeur</th>
+        </tr>
+        <tr class="odd">
+            <td><strong>Prénom</strong></td>
+            <td>{{ user.firstname }}</td>
+        </tr>
+        <tr class="even">
+            <td><strong>Nom</strong></td>
+            <td>{{ user.lastname }}</td>
+        </tr>
+        <tr class="odd">
+            <td><strong>{{ 'profile.show.username'|trans }}</strong></td>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr class="even">
+            <td><strong>{{ 'profile.show.email'|trans }}</strong></td>
+            <td>{{ user.email }}</td>
+        </tr>
+
+    </tbody></table>
+
+</div>

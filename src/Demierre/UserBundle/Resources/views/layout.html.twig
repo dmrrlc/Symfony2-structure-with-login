@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Symfony Bootstrap 3 User</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <!--[if lt IE 9]>
+                <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    </head>
+</head>
+<body>
+	<div class="container">
+		<div id="loginbox" style="margin-top: 50px;"
+			class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">Sign In</div>
+					<div
+						style="float: right; font-size: 80%; position: relative; top: -10px">
+						<a href="{{ path('fos_user_resetting_request') }}">Forgot password?</a>
+					</div>
+				</div>
+
+				<div style="padding-top: 30px" class="panel-body">
+
+					<div style="display: none" id="login-alert"
+						class="alert alert-danger col-sm-12"></div>
+					
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- script references -->
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
+</body>
+</html>
